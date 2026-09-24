@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>João Ricardo · Full Stack & DevOps</title>
+<meta name="description" content="Portfólio de João Ricardo, desenvolvedor Full Stack & DevOps em Curitiba: PHP, Laravel, Node.js, TypeScript, React, Docker, CI/CD, mensageria, clusters e IA aplicada.">
+<meta property="og:title" content="João Ricardo · Full Stack & DevOps">
+<meta property="og:description" content="PHP, Laravel, Node.js, TypeScript, NestJS, React, Next.js, Docker, GitLab CI/CD, GitOps, Linux, mensageria e IA aplicada.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%230e6b5c'/%3E%3Ctext x='16' y='21.5' font-family='monospace' font-size='14' font-weight='700' text-anchor='middle' fill='white'%3EJR%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{
+  color-scheme:light;
+  --bg:#f3f5f6; --surface:#ffffff; --ink:#172026; --muted:#5a6873; --line:#d9e0e4;
+  --accent:#0e6b5c; --accent-soft:#e2f1ed; --on-accent:#ffffff;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+  --sans:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    color-scheme:dark;
+    --bg:#11171a; --surface:#182126; --ink:#e4ebee; --muted:#95a5ae; --line:#2a363c;
+    --accent:#4cc3a8; --accent-soft:#17342e; --on-accent:#0c1a17;
+  }
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --bg:#11171a; --surface:#182126; --ink:#e4ebee; --muted:#95a5ae; --line:#2a363c;
+  --accent:#4cc3a8; --accent-soft:#17342e; --on-accent:#0c1a17;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.6;padding-inline:16px}
+a{color:var(--accent)}
+.wrap{max-width:960px;margin:0 auto}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+
+/* top bar */
+.topbar{position:sticky;top:0;z-index:5;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-inline:-16px;padding-inline:16px}
+.topbar .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:10px;flex-wrap:wrap}
+.brand{font:500 14px var(--mono);color:var(--ink);text-decoration:none;letter-spacing:.02em}
+.brand b{color:var(--accent);font-weight:500}
+nav.links{display:flex;gap:18px;flex-wrap:wrap}
+nav.links a{color:var(--muted);text-decoration:none;font-size:14px}
+nav.links a:hover{color:var(--ink)}
+.controls{display:flex;gap:8px;align-items:center}
+.seg{display:inline-flex;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+.seg button{font:500 13px var(--sans);padding:5px 12px;border:0;background:transparent;color:var(--muted);cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--on-accent)}
+.icon-btn{font:500 13px var(--mono);border:1px solid var(--line);background:var(--surface);color:var(--muted);border-radius:8px;padding:5px 10px;cursor:pointer}
+
+/* hero */
+.hero{padding-block:64px 40px;display:flex;flex-direction:column;gap:16px}
+.eyebrow{font:500 12px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(36px,6vw,56px);line-height:1.05;margin:0;font-weight:700;letter-spacing:-.02em;text-wrap:balance}
+.role{font-size:clamp(19px,2.6vw,24px);margin:0;color:var(--ink);font-weight:500;text-wrap:balance}
+.lede{color:var(--muted);margin:0;max-width:62ch;font-size:17px}
+.cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:8px}
+.btn{font:500 14px var(--sans);text-decoration:none;border-radius:8px;padding:9px 16px;border:1px solid var(--accent)}
+.btn.primary{background:var(--accent);color:var(--on-accent)}
+.btn.ghost{color:var(--accent);background:transparent}
+.pipeline{margin-top:20px;display:flex;flex-wrap:wrap;gap:0;font:400 13px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:10px;background:var(--surface);overflow:hidden}
+.pipeline span{padding:10px 14px;border-right:1px solid var(--line);display:flex;align-items:center;gap:8px;flex:1 1 auto}
+.pipeline span:last-child{border-right:0}
+.pipeline i{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block;flex:none}
+
+/* sections */
+section{padding-block:40px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:20px}
+.sh{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+h2{font-size:24px;margin:0;letter-spacing:-.01em}
+.sh .hint{font:400 12px var(--mono);color:var(--muted)}
+p{margin:0}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:68ch}
+
+/* stack */
+.stack{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.sg{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.sg h3{margin:0;font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{font-size:13px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;background:var(--bg)}
+.chip.hl{border-color:var(--accent);background:var(--accent-soft);font-weight:500}
+
+/* experience */
+.job{background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.job header{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding:16px 18px;border-bottom:1px solid var(--line)}
+.job h3{margin:0;font-size:18px}
+.job .org{color:var(--muted);font-size:14px}
+.job .when{font:400 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.job ul{margin:0;padding:16px 18px 18px 36px;display:flex;flex-direction:column;gap:8px}
+.more{font-size:14px;color:var(--muted)}
+
+/* cases */
+.cases{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+@media (max-width:700px){.cases{grid-template-columns:1fr}}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:flex;flex-direction:column;gap:10px}
+.case h3{margin:0;font-size:17px;line-height:1.35}
+.case p{color:var(--muted);font-size:15px}
+.case .res{color:var(--ink);font-size:14px;border-top:1px dashed var(--line);padding-top:10px}
+.case .res b{font:500 12px var(--mono);text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-right:6px}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:auto}
+.tag{font:400 12px var(--mono);color:var(--muted);border:1px solid var(--line);border-radius:4px;padding:1px 7px}
+
+/* repos */
+.repos{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.repos li{display:grid;grid-template-columns:minmax(0,220px) 1fr;gap:6px 16px;padding:12px 16px;border-top:1px solid var(--line)}
+.repos li:first-child{border-top:0}
+@media (max-width:560px){.repos li{grid-template-columns:1fr}}
+.repos a{font:500 14px var(--mono);text-decoration:none;overflow-wrap:anywhere}
+.repos a:hover{text-decoration:underline}
+.repos span{color:var(--muted);font-size:15px}
+
+/* contact */
+.contact{display:flex;gap:10px;flex-wrap:wrap}
+footer{border-top:1px solid var(--line);padding-block:24px 40px;color:var(--muted);font:400 12px var(--mono)}
+@media (max-width:640px){nav.links{display:none}}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top"><b>~/</b>joaoricardo</a>
+    <nav class="links" aria-label="Seções">
+      <a href="#sobre" data-i18n="navAbout">Sobre</a>
+      <a href="#stack" data-i18n="navStack">Stack</a>
+      <a href="#experiencia" data-i18n="navExp">Experiência</a>
+      <a href="#projetos" data-i18n="navProj">Projetos</a>
+      <a href="#contato" data-i18n="navContact">Contato</a>
+    </nav>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Idioma / Language">
+        <button type="button" id="lang-pt" data-lang="pt" aria-pressed="true">PT</button>
+        <button type="button" id="lang-en" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <button type="button" class="icon-btn" id="theme" aria-label="Alternar tema">◐</button>
+    </div>
+  </div>
+</div>
+
+<main class="wrap" id="top">
+  <div class="hero">
+    <div class="eyebrow" data-i18n="eyebrow">Curitiba, PR · Brasil</div>
+    <h1>João Ricardo</h1>
+    <p class="role" data-i18n="role">Desenvolvedor Full Stack & DevOps</p>
+    <p class="lede" data-i18n="lede"></p>
+    <div class="cta">
+      <a class="btn primary" href="https://www.linkedin.com/in/jo%C3%A3o-ricardo-a05a7828a/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/JoaoLRicardo" target="_blank" rel="noopener">GitHub</a>
+    </div>
+    <div class="pipeline" aria-label="Ciclo de trabalho" id="pipeline"></div>
+  </div>
+
+  <section id="sobre">
+    <div class="sh"><h2 data-i18n="aboutT">Sobre</h2></div>
+    <div class="prose" id="about"></div>
+  </section>
+
+  <section id="stack">
+    <div class="sh"><h2 data-i18n="stackT">Stack</h2><span class="hint" data-i18n="stackH">em destaque = uso diário</span></div>
+    <div class="stack" id="stackgrid"></div>
+  </section>
+
+  <section id="experiencia">
+    <div class="sh"><h2 data-i18n="expT">Experiência</h2></div>
+    <article class="job">
+      <header>
+        <div>
+          <h3 data-i18n="role">Desenvolvedor Full Stack & DevOps</h3>
+          <div class="org" data-i18n="org">SoftMarketing Soluções em Comunicação · Curitiba, PR · Híbrido</div>
+        </div>
+        <span class="when" data-i18n="when">mar 2025 – atual</span>
+      </header>
+      <ul id="exp"></ul>
+    </article>
+    <p class="more" data-i18n-html="more"></p>
+  </section>
+
+  <section id="projetos">
+    <div class="sh"><h2 data-i18n="casesT">Trabalhos em destaque</h2><span class="hint" data-i18n="casesH">repositórios privados · descritos sem dados de clientes</span></div>
+    <div class="cases" id="cases"></div>
+
+    <div class="sh" style="margin-top:12px"><h2 data-i18n="reposT">Projetos públicos</h2></div>
+    <ul class="repos" id="repos"></ul>
+  </section>
+
+  <section id="contato">
+    <div class="sh"><h2 data-i18n="contactT">Contato</h2></div>
+    <p class="lede" data-i18n="contactP"></p>
+    <div class="contact">
+      <a class="btn primary" href="https://www.linkedin.com/in/jo%C3%A3o-ricardo-a05a7828a/" target="_blank" rel="noopener">LinkedIn</a>
+      <a class="btn ghost" href="https://github.com/JoaoLRicardo" target="_blank" rel="noopener">GitHub</a>
+      <a class="btn ghost" href="https://www.instagram.com/jluizricardo/" target="_blank" rel="noopener">Instagram</a>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap" id="foot"></div></footer>
+
+<script>
+const T={
+pt:{
+navAbout:"Sobre",navStack:"Stack",navExp:"Experiência",navProj:"Projetos",navContact:"Contato",
+eyebrow:"Curitiba, PR · Brasil",
+role:"Desenvolvedor Full Stack & DevOps",
+lede:"Construo sistemas do zero ao deploy: arquitetura, código, infraestrutura, CI/CD e operação em produção. PHP, Laravel, Node.js, TypeScript, React, Docker, GitLab, Linux, mensageria e IA aplicada.",
+pipeline:["Arquitetura","Código","Infraestrutura","CI/CD","Produção","Observabilidade"],
+aboutT:"Sobre",
+about:[
+"Desenvolvedor Full Stack com perfil DevOps. Trabalho com o ciclo completo de um sistema: entendo o problema, desenho a arquitetura, escrevo o código, monto a infraestrutura, automatizo o deploy e acompanho o comportamento em produção.",
+"No back-end uso PHP (Laravel, CakePHP, Zend) e Node.js com TypeScript (NestJS, Express), construindo APIs REST, microsserviços e workers assíncronos. Tenho bastante experiência em modernizar sistemas legados e migrá-los para arquiteturas modulares. No front-end trabalho com React e Next.js.",
+"Em sistemas distribuídos, atuo com mensageria (RabbitMQ, filas, DLQ, retry com backoff), chatbots e atendimento via WhatsApp. Faço testes de carga e análise de causa-raiz de incidentes, investigando gargalos de CPU, banco, rede e conexões.",
+"Na infraestrutura, cuido de servidores Linux, VMs, redes, DNS e domínios, clusters de alta disponibilidade, build de imagens Docker e pipelines de CI/CD com GitLab em fluxo GitOps.",
+"Uso Claude Code e agentes de IA no dia a dia para investigar incidentes, revisar código, automatizar tarefas e documentar, e projeto arquiteturas que integram LLMs a produtos."
+],
+stackT:"Stack",stackH:"em destaque = uso diário",
+stack:[
+ ["Back-end",["PHP","Laravel","Node.js","TypeScript","NestJS","Express","CakePHP","Zend","APIs REST","Microsserviços"],["PHP","Laravel","Node.js","TypeScript"]],
+ ["Front-end",["React","Next.js","JavaScript","HTML","CSS","Tailwind","Bootstrap","jQuery"],["React","Next.js"]],
+ ["Mensageria & chatbots",["RabbitMQ","AMQP","DLQ / retry","Botpress","WhatsApp","Workers"],["RabbitMQ"]],
+ ["DevOps & CI/CD",["GitLab CI/CD","GitOps","Docker","Docker Compose","Build de imagens","Git","PM2"],["GitLab CI/CD","Docker"]],
+ ["Infra & redes",["Linux","Nginx","Apache","HAProxy","Keepalived","VMs","Clusters","DNS & domínios","Redes","Zabbix","AWS","Google Cloud"],["Linux","Nginx"]],
+ ["Dados",["MySQL","PostgreSQL","Patroni","SeaweedFS / S3","Modelagem","Índices & queries"],["MySQL","PostgreSQL"]],
+ ["IA",["Claude Code","Agentes de IA","LLMs","Arquiteturas com IA","Automação"],["Claude Code"]],
+ ["Performance",["Profiling","Testes de carga","Cache","Pools de conexão","Lazy loading","SSR / SSG","Core Web Vitals"],["Testes de carga"]]
+],
+expT:"Experiência",
+org:"SoftMarketing Soluções em Comunicação · Curitiba, PR · Híbrido",
+when:"mar 2025 – atual",
+exp:[
+"Desenvolvimento full stack em PHP (Zend, Laravel), Node.js/TypeScript (NestJS, Express) e React/Next.js, do levantamento de requisitos ao deploy em produção.",
+"Migração de sistema legado modular para Laravel, com novo banco de dados e reaproveitamento de módulos.",
+"Sistema interno de RH: novas funcionalidades, relatórios com filtros e exportação, e reescrita do cálculo de banco de horas, que resolveu um problema crítico de desempenho.",
+"Arquitetura distribuída de atendimento via WhatsApp e chatbots (Botpress): mensageria com RabbitMQ, workers em Node.js, DLQ e política de retry.",
+"Testes de carga de 7 a 15 mil mensagens por minuto e análise de causa-raiz em produção. Corrigi o excesso de conexões AMQP (carga do servidor caiu de 16 para 7 no mesmo volume), criei índices no MySQL e adicionei timeouts em chamadas HTTP.",
+"Infraestrutura: servidores Linux, VMs, Nginx/Apache, HAProxy, Keepalived com IP virtual, cluster PostgreSQL com Patroni e armazenamento de objetos S3 com SeaweedFS.",
+"CI/CD e GitOps com GitLab: build de imagens Docker (multi-stage), ambientes de homologação e produção, merge requests e deploy automatizado.",
+"Otimização de performance: profiling, índices e consultas, cache, pools de conexão e, no front-end, bundle, lazy loading e SSR.",
+"Monitoramento com Zabbix e PM2, resposta a incidentes e escrita de runbooks.",
+"Uso de IA (Claude Code e agentes) para investigação de incidentes, revisão de código, automação e documentação."
+],
+more:'Histórico completo no <a href="https://www.linkedin.com/in/jo%C3%A3o-ricardo-a05a7828a/" target="_blank" rel="noopener">LinkedIn</a>.',
+casesT:"Trabalhos em destaque",casesH:"repositórios privados · descritos sem dados de clientes",
+cases:[
+ ["Mensageria para atendimento via WhatsApp","Arquitetura com filas RabbitMQ, workers Node.js e chatbots Botpress. Testes de carga de 7 a 15 mil mensagens por minuto para achar os gargalos reais.","Conexões AMQP persistentes no lugar de uma por mensagem: carga do servidor de 16 para 7 no mesmo volume.",["RabbitMQ","Node.js","Botpress","MySQL","Nginx"]],
+ ["Cluster S3 de alta disponibilidade","Armazenamento de objetos compatível com S3 em várias VMs, com IP virtual, balanceamento e banco de metadados replicado.","Diagnóstico e correção de falha de failover no Postgres, com runbooks para a operação.",["SeaweedFS","PostgreSQL","Patroni","HAProxy","Keepalived"]],
+ ["Migração de legado para Laravel","Sistema modular em Zend Framework migrado para Laravel, com nova modelagem de banco e módulos reaproveitáveis.","Base organizada e escalável, integrada ao banco legado durante a transição.",["Laravel","PHP","MySQL","Zend"]],
+ ["Sistema interno de RH","Novos módulos, relatórios para funcionários, gestores e RH, e auditoria de segurança da aplicação web.","Cálculo de banco de horas reescrito, resolvendo um problema crítico de tempo de resposta.",["PHP","MySQL","JavaScript","Segurança"]]
+],
+result:"Resultado",
+reposT:"Projetos públicos",
+repos:[
+ ["devanpraescola.com.br","https://www.devanpraescola.com.br","Portal de transporte escolar que conecta pais, alunos e condutores."],
+ ["course-laravel","https://github.com/JoaoLRicardo/course-laravel","Blog de vagas em Laravel com autenticação, permissões, Blade components e Tailwind."],
+ ["django-simple-ecommerce","https://github.com/JoaoLRicardo/django-simple-ecommerce","Loja virtual simples com back-end em Django."],
+ ["curso-php","https://github.com/JoaoLRicardo/curso-php","Fundamentos de PHP com exercícios práticos."],
+ ["curso-python","https://github.com/JoaoLRicardo/curso-python","Lógica de programação em Python com exercícios e scripts."],
+ ["bootstrap5-course","https://github.com/JoaoLRicardo/bootstrap5-course","Interfaces responsivas com HTML, CSS e Bootstrap 5."]
+],
+contactT:"Contato",
+contactP:"Aberto a conversar sobre projetos, arquitetura, DevOps e colaborações. O jeito mais rápido é pelo LinkedIn.",
+foot:"© 2026 João Ricardo · feito à mão, publicado com GitHub Pages",
+theme:"Alternar tema"
+},
+en:{
+navAbout:"About",navStack:"Stack",navExp:"Experience",navProj:"Projects",navContact:"Contact",
+eyebrow:"Curitiba, PR · Brazil",
+role:"Full Stack & DevOps Engineer",
+lede:"I build systems from scratch to deployment: architecture, code, infrastructure, CI/CD and production operations. PHP, Laravel, Node.js, TypeScript, React, Docker, GitLab, Linux, messaging and applied AI.",
+pipeline:["Architecture","Code","Infrastructure","CI/CD","Production","Observability"],
+aboutT:"About",
+about:[
+"Full Stack developer with a DevOps focus. I work across the whole life of a system: understanding the problem, designing the architecture, writing the code, building the infrastructure, automating deployment and watching how it behaves in production.",
+"On the back-end I use PHP (Laravel, CakePHP, Zend) and Node.js with TypeScript (NestJS, Express), building REST APIs, microservices and async workers. I have solid experience modernizing legacy systems and migrating them to modular architectures. On the front-end I work with React and Next.js.",
+"In distributed systems I work with messaging (RabbitMQ, queues, DLQ, retry with backoff), chatbots and WhatsApp customer service. I run load tests and root-cause analysis of incidents, tracking down CPU, database, network and connection bottlenecks.",
+"On infrastructure I handle Linux servers, VMs, networking, DNS and domains, high-availability clusters, Docker image builds and CI/CD pipelines on GitLab with a GitOps workflow.",
+"I use Claude Code and AI agents daily to investigate incidents, review code, automate tasks and write documentation, and I design architectures that bring LLMs into products."
+],
+stackT:"Stack",stackH:"highlighted = daily use",
+stack:[
+ ["Back-end",["PHP","Laravel","Node.js","TypeScript","NestJS","Express","CakePHP","Zend","REST APIs","Microservices"],["PHP","Laravel","Node.js","TypeScript"]],
+ ["Front-end",["React","Next.js","JavaScript","HTML","CSS","Tailwind","Bootstrap","jQuery"],["React","Next.js"]],
+ ["Messaging & chatbots",["RabbitMQ","AMQP","DLQ / retry","Botpress","WhatsApp","Workers"],["RabbitMQ"]],
+ ["DevOps & CI/CD",["GitLab CI/CD","GitOps","Docker","Docker Compose","Image builds","Git","PM2"],["GitLab CI/CD","Docker"]],
+ ["Infra & networking",["Linux","Nginx","Apache","HAProxy","Keepalived","VMs","Clusters","DNS & domains","Networking","Zabbix","AWS","Google Cloud"],["Linux","Nginx"]],
+ ["Data",["MySQL","PostgreSQL","Patroni","SeaweedFS / S3","Data modeling","Indexes & queries"],["MySQL","PostgreSQL"]],
+ ["AI",["Claude Code","AI agents","LLMs","AI architectures","Automation"],["Claude Code"]],
+ ["Performance",["Profiling","Load testing","Caching","Connection pools","Lazy loading","SSR / SSG","Core Web Vitals"],["Load testing"]]
+],
+expT:"Experience",
+org:"SoftMarketing Soluções em Comunicação · Curitiba, Brazil · Hybrid",
+when:"Mar 2025 – present",
+exp:[
+"Full stack development in PHP (Zend, Laravel), Node.js/TypeScript (NestJS, Express) and React/Next.js, from requirements to production deployment.",
+"Migrated a modular legacy system to Laravel, with a new database design and reusable modules.",
+"Internal HR system: new features, reports with filters and export, and a rewrite of the time-bank calculation that fixed a critical performance problem.",
+"Distributed architecture for WhatsApp customer service and chatbots (Botpress): RabbitMQ messaging, Node.js workers, DLQ and retry policy.",
+"Load tests at 7 to 15 thousand messages per minute and root-cause analysis in production. Fixed AMQP connection churn (server load dropped from 16 to 7 at the same volume), added MySQL indexes and HTTP call timeouts.",
+"Infrastructure: Linux servers, VMs, Nginx/Apache, HAProxy, Keepalived with a virtual IP, PostgreSQL cluster with Patroni and S3 object storage with SeaweedFS.",
+"CI/CD and GitOps with GitLab: Docker image builds (multi-stage), staging and production environments, merge requests and automated deployment.",
+"Performance optimization: profiling, indexes and queries, caching, connection pools and, on the front-end, bundle size, lazy loading and SSR.",
+"Monitoring with Zabbix and PM2, incident response and runbook writing.",
+"AI in daily work (Claude Code and agents) for incident investigation, code review, automation and documentation."
+],
+more:'Full history on <a href="https://www.linkedin.com/in/jo%C3%A3o-ricardo-a05a7828a/" target="_blank" rel="noopener">LinkedIn</a>.',
+casesT:"Selected work",casesH:"private repositories · described without client data",
+cases:[
+ ["Messaging for WhatsApp customer service","RabbitMQ queues, Node.js workers and Botpress chatbots. Load tests at 7 to 15 thousand messages per minute to find the real bottlenecks.","Persistent AMQP connections instead of one per message: server load from 16 to 7 at the same volume.",["RabbitMQ","Node.js","Botpress","MySQL","Nginx"]],
+ ["High-availability S3 cluster","S3-compatible object storage across several VMs, with a virtual IP, load balancing and a replicated metadata database.","Diagnosed and fixed a Postgres failover issue, with runbooks for operations.",["SeaweedFS","PostgreSQL","Patroni","HAProxy","Keepalived"]],
+ ["Legacy migration to Laravel","A modular Zend Framework system migrated to Laravel, with a new database design and reusable modules.","A clean, scalable codebase integrated with the legacy database during the transition.",["Laravel","PHP","MySQL","Zend"]],
+ ["Internal HR system","New modules, reports for employees, managers and HR, and a security audit of the web application.","Rewrote the time-bank calculation, fixing a critical response-time problem.",["PHP","MySQL","JavaScript","Security"]]
+],
+result:"Result",
+reposT:"Public projects",
+repos:[
+ ["devanpraescola.com.br","https://www.devanpraescola.com.br","School transport portal connecting parents, students and drivers."],
+ ["course-laravel","https://github.com/JoaoLRicardo/course-laravel","Laravel job board with authentication, permissions, Blade components and Tailwind."],
+ ["django-simple-ecommerce","https://github.com/JoaoLRicardo/django-simple-ecommerce","Simple online store with a Django back-end."],
+ ["curso-php","https://github.com/JoaoLRicardo/curso-php","PHP fundamentals with hands-on exercises."],
+ ["curso-python","https://github.com/JoaoLRicardo/curso-python","Programming logic in Python with exercises and scripts."],
+ ["bootstrap5-course","https://github.com/JoaoLRicardo/bootstrap5-course","Responsive interfaces with HTML, CSS and Bootstrap 5."]
+],
+contactT:"Contact",
+contactP:"Happy to talk about projects, architecture, DevOps and collaborations. LinkedIn is the fastest way to reach me.",
+foot:"© 2026 João Ricardo · handmade, served by GitHub Pages",
+theme:"Toggle theme"
+}};
+
+let lang=(navigator.language||"pt").toLowerCase().startsWith("pt")?"pt":"en";
+try{const s=localStorage.getItem("pf-lang");if(s==="pt"||s==="en")lang=s}catch(e){}
+try{const t=localStorage.getItem("pf-theme");if(t==="dark"||t==="light")document.documentElement.dataset.theme=t}catch(e){}
+
+const el=(tag,cls,txt)=>{const e=document.createElement(tag);if(cls)e.className=cls;if(txt!=null)e.textContent=txt;return e};
+
+function render(){
+  const L=T[lang];
+  document.documentElement.lang=lang==="pt"?"pt-BR":"en";
+  document.querySelectorAll("[data-i18n]").forEach(e=>e.textContent=L[e.dataset.i18n]);
+  document.querySelectorAll("[data-i18n-html]").forEach(e=>e.innerHTML=L[e.dataset.i18nHtml]);
+  document.querySelectorAll(".seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+  document.getElementById("theme").setAttribute("aria-label",L.theme);
+
+  const pl=document.getElementById("pipeline");pl.innerHTML="";
+  L.pipeline.forEach(s=>{const sp=el("span");sp.append(el("i"),document.createTextNode(s));pl.append(sp)});
+
+  const ab=document.getElementById("about");ab.innerHTML="";L.about.forEach(t=>ab.append(el("p",null,t)));
+
+  const sg=document.getElementById("stackgrid");sg.innerHTML="";
+  L.stack.forEach(([name,items,top])=>{
+    const box=el("div","sg");box.append(el("h3",null,name));
+    const ch=el("div","chips");items.forEach(i=>ch.append(el("span","chip"+(top.includes(i)?" hl":""),i)));
+    box.append(ch);sg.append(box);
+  });
+
+  const ex=document.getElementById("exp");ex.innerHTML="";L.exp.forEach(t=>ex.append(el("li",null,t)));
+
+  const cs=document.getElementById("cases");cs.innerHTML="";
+  L.cases.forEach(([t,d,r,tags])=>{
+    const c=el("article","case");c.append(el("h3",null,t),el("p",null,d));
+    const res=el("p","res");res.append(el("b",null,L.result),document.createTextNode(r));c.append(res);
+    const tg=el("div","tags");tags.forEach(x=>tg.append(el("span","tag",x)));c.append(tg);cs.append(c);
+  });
+
+  const rp=document.getElementById("repos");rp.innerHTML="";
+  L.repos.forEach(([n,u,d])=>{
+    const li=el("li");const a=el("a",null,n);a.href=u;a.target="_blank";a.rel="noopener";
+    li.append(a,el("span",null,d));rp.append(li);
+  });
+
+  document.getElementById("foot").textContent=L.foot;
+}
+
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{
+  lang=b.dataset.lang;try{localStorage.setItem("pf-lang",lang)}catch(e){}render();
+}));
+document.getElementById("theme").addEventListener("click",()=>{
+  const root=document.documentElement;
+  const cur=root.dataset.theme||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  const next=cur==="dark"?"light":"dark";root.dataset.theme=next;
+  try{localStorage.setItem("pf-theme",next)}catch(e){}
+});
+render();
+</script>
+</body>
+</html>
